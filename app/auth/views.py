@@ -49,6 +49,8 @@ def login():
             login_user(employee)
 
             # redirect to the dashboard page after login
+            if employee.is_admin:
+                return redirect(url_for('home.admin_dashboard'))
             return redirect(url_for('home.dashboard'))
 
         # when login details are incorrect
